@@ -2,9 +2,11 @@
 
 ## Ziel
 
-Gewünscht ist ein Sekundenzähler, der allerdings ab einer vorgegebenen Zahl (z.B. 30 Jahre) abwärts zählt.
+Gewünscht ist ein Sekundenzähler, der allerdings ab einer vorgegebenen Zahl
+(z.B. 30 Jahre) abwärts zählt.
 
-Angezeigt werden sollen die verbleibenden Sekunden mittels LED-Ziffern (7-Segment-Anzeige).
+Angezeigt werden sollen die verbleibenden Sekunden mittels LED-Ziffern
+(7-Segment-Anzeige).
 
 --------------------------------------------------------------------------------
 
@@ -27,7 +29,8 @@ somit ergeben sich bei zwei dieser Bausteine 26 benötigte Pins.
 (Ein üblicher ESP32 hat 25 GPIO-Pins, also genau einen zu wenig.)
 
 Lösungsmöglichkeiten:
-- Pins sparen: Da die Punkte der 7-Segment-Anzeige (also das jeweils achte Segment) nicht benötigt werden, genügen pro Baustein 12 Verbindungen.
+- Pins sparen: Da die Punkte der 7-Segment-Anzeige (also das jeweils achte Segment)
+  nicht benötigt werden, genügen pro Baustein 12 Verbindungen.
   Da die Aufgabe mit einem Arduino Nano mit 20 GPIO-Pins gelöst werden soll, sind dies allerdings immer noch zu viele.
   (Es wäre aber ein interessanter Zwischenschritt auf dem Weg zur endgültigen Lösung.)
 - IO-Expander: Die Anzahl der nutzbaren Pins kann via Baustein erhöht werden.
@@ -46,9 +49,20 @@ Auch abhängig von der gewählten Lösung des Anschlusses der beiden Bausteine i
 die Taktung des Wechsels zwischen den Ziffern:
 Kann jede Ziffer bei einem Fünftel oder einem Zehntel der Zeit angesteuert werden?
 
-
 ## Test 1: Fünfstellige Zahlen anzeigen
 
 Ein erstes kleines Testprogramm soll die Darstellung
 beliebiger fünfstelliger Zahlen in einem Anzeigebauteil ermöglichen.
+
+Im ersten Versuch will die Arduino IDE mich weder Funktionen mit std::bitset als Parameter
+definieren lassen noch mir einen vernünftigen seriellen Output anzeigen.
+Zudem wird die fünfte Ziffer nicht mit angezeigt.
+
+Zum zweiten Punkt habe ich den Verdacht, dass eventuell einer der benutzten Pins
+mit zum Serial gehört;
+zum dritten, dass eventuell eine Verkabelung nicht stimmt.
+
+Für einen Abend war das aber erst einmal genug angesammelter Frust
+und es geht wann anders weiter.
+
 
