@@ -72,4 +72,13 @@ Ist es vielleicht zu viel C++ für den Arduino-C-Compiler?
 ToDo: Die Initialisierungsstrings der Bitsets müssen noch umgedreht werden,
 sie sind von hinten nach vorne zu lesen.
 
+Hinweis: Das Einbinden des Bitsets "ganz nach vorne" setzen;
+dies scheint häufiger Probleme zu machen.
+(Ergibt auch Sinn, wenn man bedenkt, dass die Funktionsdeklarationen
+beim Zusammenbau vorgezogen werden.)
+
+Weiterer Hinweis:
+Für solche offenen Probleme und ToDos könnte eventuell GitHub-Issues
+statt dieses Tagebuchs genutzt werden.
+
 
