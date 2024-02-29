@@ -65,4 +65,11 @@ zum dritten, dass eventuell eine Verkabelung nicht stimmt.
 Für einen Abend war das aber erst einmal genug angesammelter Frust
 und es geht wann anders weiter.
 
+Hinweis: Grundsätzlich sollte die Bitset-Parameterübergabe funktionieren,
+die einschlägigen Online-Compiler unterstützen dies alles.
+Ist es vielleicht zu viel C++ für den Arduino-C-Compiler?
+
+ToDo: Die Initialisierungsstrings der Bitsets müssen noch umgedreht werden,
+sie sind von hinten nach vorne zu lesen.
+
 
