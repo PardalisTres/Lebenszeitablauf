@@ -54,6 +54,8 @@ Kann jede Ziffer bei einem Fünftel oder einem Zehntel der Zeit angesteuert werd
 Ein erstes kleines Testprogramm soll die Darstellung
 beliebiger fünfstelliger Zahlen in einem Anzeigebauteil ermöglichen.
 
+### Probleme
+
 Im ersten Versuch will die Arduino IDE mich weder Funktionen mit std::bitset als Parameter
 definieren lassen noch mir einen vernünftigen seriellen Output anzeigen.
 Zudem wird die fünfte Ziffer nicht mit angezeigt.
@@ -65,20 +67,10 @@ zum dritten, dass eventuell eine Verkabelung nicht stimmt.
 Für einen Abend war das aber erst einmal genug angesammelter Frust
 und es geht wann anders weiter.
 
-Hinweis: Grundsätzlich sollte die Bitset-Parameterübergabe funktionieren,
-die einschlägigen Online-Compiler unterstützen dies alles.
-Ist es vielleicht zu viel C++ für den Arduino-C-Compiler?
+### Lösungen
 
-ToDo: Die Initialisierungsstrings der Bitsets müssen noch umgedreht werden,
-sie sind von hinten nach vorne zu lesen.
-
-Hinweis: Das Einbinden des Bitsets "ganz nach vorne" setzen;
-dies scheint häufiger Probleme zu machen.
-(Ergibt auch Sinn, wenn man bedenkt, dass die Funktionsdeklarationen
-beim Zusammenbau vorgezogen werden.)
-
-Weiterer Hinweis:
-Für solche offenen Probleme und ToDos könnte eventuell GitHub-Issues
-statt dieses Tagebuchs genutzt werden.
-
+Die Lösung für das fehlgeschlagene include ist, die Präcompiler-Anweisung direkt
+in die erste Datei einzufügen.
+Beim Zusammenkopieren der Sketches mit Vorwegnahme der Funktionsdeklarationen
+kommt es ansonsten zu diesen Fehlern.
 
