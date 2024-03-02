@@ -76,5 +76,17 @@ void loopDisplay1() {
 /*
  * Test 2: Stelle gleichzeitig verschiedene Ziffern dar.
  */
-void loopDosplay2() {
+void loopDisplay2() {
+  static const uint32_t zyklus{ 10 };
+  static uint32_t lastTime{ -zyklus };
+  static uint8_t stelle{ 0 };
+
+  const static uint8_t Anzeige[] = { 3, 0, 4, 5, 9 };
+
+  if (millis() - lastTime < zyklus) return;
+
+  displaySetZifferAn(stelle, false);
+  stelle = ++stelle % 5;
+  displayShowZiffer(MusterZiffer[Anzeige[stelle]]);
+  displaySetZifferAn(stelle, true);
 }

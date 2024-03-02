@@ -80,4 +80,8 @@ und mir damit selbst den seriellen Monitor verbaut,
 andererseits hatte ich nicht berücksichtigt, dass einige GPIO-Pins
 nur für den INPUT verwendet werden können.
 
+### Erfreuliches
+
+Das Anzeigen fünf verschiedener Ziffern gleichzeitig hat dafür direkt im
+ersten Versuch funktioniert - ein freudiger Hoffnungsschimmer.
 
