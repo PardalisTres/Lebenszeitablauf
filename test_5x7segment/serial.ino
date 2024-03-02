@@ -1,17 +1,17 @@
 void setupSerial() {
-  // Ganze fünf Sekunden Delay jeweils, um genug Zeit für langsame Entwicklungsrechner oder zum Start weiterer Programme zu haben (z.B. puTTy).
-  // delay(5000);
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) {
     delay(100);
   }
-  // delay(5000);
+
+  // Bei nur einer Sekunde Wartezeit wird der Programmname noch nicht ausgegeben,
+  // deswegen spendieren wir hier direkt zwei Minuten.
+  delay(2000);
 
   Serial.println();
-  Serial.print(PROGRAM_NAME);
-  Serial.println();
+  Serial.println(PROGRAM_NAME);
   Serial.print(__DATE__);
-  Serial.print(" ");
-  Serial.print(__TIME__);
+  Serial.print(" - ");
+  Serial.println(__TIME__);
   Serial.println();
 }

@@ -8,5 +8,5 @@ void setup() {
 }
 
 void loop() {
-  loopDisplay();
+  loopDisplay1();
 }

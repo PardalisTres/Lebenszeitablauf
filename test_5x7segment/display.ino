@@ -2,7 +2,7 @@
 
 // ESP-GPIO-Pins, die zu den Pins der Anzeige führen.
 // (Pin 0 und 7 gibt es nicht; 3 ist für den . und somit nicht benötigt.)
-const uint8_t DisplayPins[15] = { 0, 19, 21, 3, 1, 22, 23, 0, 34, 35, 32, 33, 25, 26, 27 };
+const uint8_t DisplayPins[15] = { 0, 19, 21, 12, 14, 22, 23, 0, 18, 5, 32, 33, 25, 26, 27 };
 
 // Bit-Muster für Ziffern
 const std::bitset<8> Muster0{ "00111111" };
@@ -26,15 +26,7 @@ const uint8_t PinZuStelleVcc[] = { 13, 9, 4, 2, 1, 12, 5, 3 };
 
 
 void displaySetZifferAn(const uint8_t stelle, bool an = true) {
-  // TODO: ist OUTPUT der richtige Parameter, wenn der Pin weggeschaltet werden soll? oder INPUT_PULLUP?
-  // -> OUTPUT schein es zu tun.
-
   pinMode(DisplayPins[PinZuStelleGnd[stelle]], an ? OUTPUT : INPUT);
-  Serial.print("displaySetZifferAn(");
-  Serial.print(stelle);
-  Serial.print(", ");
-  Serial.print(an);
-  Serial.println(")");
 }
 
 void displayShowZiffer(const std::bitset<8>& muster) {
@@ -54,23 +46,19 @@ void setupDisplay() {
   pinMode(DisplayPins[1], OUTPUT);
   pinMode(DisplayPins[12], OUTPUT);
   pinMode(DisplayPins[5], OUTPUT);
-
-  // pinMode(DisplayPins[14], INPUT);
-  // pinMode(DisplayPins[11], INPUT);
-  // pinMode(DisplayPins[10], INPUT);
-  // pinMode(DisplayPins[6], INPUT);
-  // pinMode(DisplayPins[8], INPUT);
 }
 
-void loopDisplay() {
-  static const uint32_t zyklus{ 5000 };
+/*
+ * Test 1: Stelle nacheinander auf einzelnen Stellen eine unterschiedliche Ziffer dar.
+ */
+void loopDisplay1() {
+  static const uint32_t zyklus{ 1000 };
   static uint32_t lastTime{ -zyklus };
   static uint8_t stelle{ 0 };
 
   if (millis() - lastTime < zyklus) return;
 
   lastTime = millis();
-  Serial.println("[loopDisplay]");
 
   // alte Lichter aus
   displaySetZifferAn(stelle, false);
@@ -79,8 +67,14 @@ void loopDisplay() {
   stelle = ++stelle % 5;
 
   // angezeigte Ziffer wechseln
-  displayShowZiffer(MusterZiffer[stelle]);
+  displayShowZiffer(MusterZiffer[stelle + 1]);
 
   // neue Lichter an
   displaySetZifferAn(stelle, true);
+}
+
+/*
+ * Test 2: Stelle gleichzeitig verschiedene Ziffern dar.
+ */
+void loopDosplay2() {
 }

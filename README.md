@@ -74,3 +74,10 @@ in die erste Datei einzufügen.
 Beim Zusammenkopieren der Sketches mit Vorwegnahme der Funktionsdeklarationen
 kommt es ansonsten zu diesen Fehlern.
 
+Die beiden anderen Punkte lagen tatsächlich an der Verkabelung:
+Einerseits hatte ich RX0 und TX0 als Funktions-Pins verwendet
+und mir damit selbst den seriellen Monitor verbaut,
+andererseits hatte ich nicht berücksichtigt, dass einige GPIO-Pins
+nur für den INPUT verwendet werden können.
+
+
