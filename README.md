@@ -85,3 +85,19 @@ nur für den INPUT verwendet werden können.
 Das Anzeigen fünf verschiedener Ziffern gleichzeitig hat dafür direkt im
 ersten Versuch funktioniert - ein freudiger Hoffnungsschimmer.
 
+## Lötungen
+
+FÜr den nächsten Test benötige ich einen IO-Expander,
+in diesem Fall will ich es mit einem PCF8575 versuchen.
+Diesen muss ich aber erst einmal mit seinen Steckleisten verlöten,
+um ihn ordentlich testen zu können.
+Es folgen die Bilder meiner ersten ganz eigenen Lötung.
+
+![](Fotos/loet_multiplexer_1.jpg)
+![](Fotos/loet_multiplexer_2.jpg)
+![](Fotos/loet_multiplexer_3.jpg)
+
+Wenn das jetzt auch noch funktioniert damit, bin ich doch ganz zufrieden -
+obgleich der alte Lötkolben (oder das Lötzinn) sich doch etwas gewöhnungsbedürftig verhalten hat.
+
+
