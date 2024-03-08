@@ -100,4 +100,16 @@ Es folgen die Bilder meiner ersten ganz eigenen Lötung.
 Wenn das jetzt auch noch funktioniert damit, bin ich doch ganz zufrieden -
 obgleich der alte Lötkolben (oder das Lötzinn) sich doch etwas gewöhnungsbedürftig verhalten hat.
 
+## Test 2: Der IO-Expander
+
+Beim Verkabeln des IO-Expanders mit einer fünfstelligen 7-Segment-Anzeige
+kommt mir ein mögliches Problem in den Kopf:
+Kann der Expander auch OUTPUT-Pins schalten?
+
+Dies wäre wichtig, um die fünf Ausgänge der Anzeige durchschalten zu können.
+Andernfalls müssten die Ausgänge doch direkt an den Mikrocontroller geführt werden.
+Immerhin könnte man jeweils zwei Ausgänge (jeweils eine der beiden fünfstellen Anzeigen) gleichzeitig ansteuern,
+sofern man dann auch ihre Anzeige-Daten entsprechend synchronisiert.
+
+Das werden die Tests dann als nächstes zeigen.
 
