@@ -77,7 +77,7 @@ void loopDisplay1() {
  * Test 2: Stelle gleichzeitig verschiedene Ziffern dar.
  */
 void loopDisplay2() {
-  static const uint32_t zyklus{ 10 };
+  static const uint32_t zyklus{ 3 };
   static uint32_t lastTime{ -zyklus };
   static uint8_t stelle{ 0 };
 

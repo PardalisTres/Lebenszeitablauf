@@ -116,3 +116,16 @@ Das werden die Tests dann als nächstes zeigen.
 Hinweis: Ob sich notfalls wohl mit Kondensatoren arbeiten lässt,
 falls die LEDs bei zu vielen gleichzeitig anzuzeigenden Ziffern nicht hell genug leuchten?
 
+### Neue Probleme
+
+Die ersten Versuche waren erst einmal nicht allzu vielversprechend:
+Weder ließen sich gezielt Segmente der Ziffern anschalten,
+noch einzelne Ziffern auswählen.
+
+Ein Verbinden eines Ziffern-Ausgangs mit dem Gnd-Port des Expanders
+eröffnete die Anzeige dieser Ziffer - jedoch wie erwähnt lediglich
+aller Segmente, nicht gezielter.
+
+Womöglich ist es zielführender, wenn ich den Expander erst einmal mit einer simpleren
+LED-Sammlung teste.
+
