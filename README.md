@@ -113,3 +113,6 @@ sofern man dann auch ihre Anzeige-Daten entsprechend synchronisiert.
 
 Das werden die Tests dann als nächstes zeigen.
 
+Hinweis: Ob sich notfalls wohl mit Kondensatoren arbeiten lässt,
+falls die LEDs bei zu vielen gleichzeitig anzuzeigenden Ziffern nicht hell genug leuchten?
+
