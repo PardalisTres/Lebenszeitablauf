@@ -45,7 +45,7 @@ void loop() {
   // Test 3: verdunkle LED 2
   /**/
   // expander.write(EPinLed2in, HIGH);
-  // expander.write(EPinLed2in, LOW);
+  expander.write(EPinLed2in, LOW);
   // expander.selectNone();
   // expander.selectAll();
   /**/
@@ -58,6 +58,12 @@ void loop() {
   //
   // expander.write(EPinLed3in, LOW);
   // expander.write(EPinLed3out, HIGH);
+  //
+  // expander.write(EPinLed3in, HIGH);
+  // expander.write(EPinLed3out, HIGH);
+  //
+  // expander.write(EPinLed3in, LOW);
+  // expander.write(EPinLed3out, LOW);
   /**/
   // -> kein positives Ergebnis mit allen Methoden
 }

@@ -129,3 +129,23 @@ aller Segmente, nicht gezielter.
 Womöglich ist es zielführender, wenn ich den Expander erst einmal mit einer simpleren
 LED-Sammlung teste.
 
+![](test_expanderXleds/ExpanderTestLed.png)
+
+Die ersten Versuche brachten hier leider allesamt keine zufriedenstellenden
+Erkenntnisse.
+
+### Lösungsidee
+
+Ein anderer Lösungsansatz wäre das Verwenden der Pins direkt am
+Mikrocontroller als schaltbare Ausgänge - da das Senden von Daten an
+die Pins des Expanders als Ausgabe zu funktionieren scheint
+(wie die ersten Tests mit Expander und Segment gezeigt hatten).
+
+Hierbei könnte dann die Ausgänge des jeweils n-ten Segments der
+beiden 5x7-Segment-Anzeigen gleichzeitig gesetzt werden,
+wenn dabei darauf geachtet wird, ihnen beiden im gleichen Moment
+die jeweiligen Eingabedaten für die darzustellende Ziffer mitzugeben.
+
+
+
+
