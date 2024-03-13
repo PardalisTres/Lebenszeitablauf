@@ -44,6 +44,22 @@ const uint8_t PinForDigit[] = {
   25, 33, 32, 22, 23
 };
 
+// Bit-Muster zum Testen/Herausfinden bei Adafruit
+/** /
+const std::bitset<8> Muster1{ "00000001" }; // -> B
+const std::bitset<8> Muster2{ "00000010" }; // -> FG ???
+const std::bitset<8> Muster3{ "00000100" }; // -> - ???
+const std::bitset<8> Muster4{ "00001000" }; // -> D
+const std::bitset<8> Muster5{ "00010000" }; // -> E
+/**/
+/** /
+const std::bitset<8> Muster1{ "00100000" }; // -> AC ???
+const std::bitset<8> Muster2{ "01000000" }; // -> G
+const std::bitset<8> Muster3{ "10000000" }; // -> .
+const std::bitset<8> Muster4{ "00000000" }; // -> 
+const std::bitset<8> Muster5{ "00000000" }; // -> 
+/**/
+
 // Bit-Muster für Ziffern
 const std::bitset<8> Muster0{ "00111111" };
 const std::bitset<8> Muster1{ "00000110" };
@@ -103,10 +119,10 @@ void setup() {
   }
 
   // alles am Expander ist OUTPUT
-  for (auto pin: EPinForSegmentOnBlock1) {
+  for (auto pin : EPinForSegmentOnBlock1) {
     expander.pinMode(pin, OUTPUT);
   }
-  for (auto pin: EPinForSegmentOnBlock2) {
+  for (auto pin : EPinForSegmentOnBlock2) {
     expander.pinMode(pin, OUTPUT);
   }
 }
@@ -116,8 +132,9 @@ void loop() {
   // und geben jeweils die Stellennummer aus:
   /**/
   for (uint8_t i = 0; i < 5; ++i) {
-    displaySetZifferAn((i + 4) % 5, false);  // i-1 funktioniert nicht
-    displayShowZiffer(i + 1);
+    displaySetZifferAn((i + 4) % 5, false);  // (i-1)%5 funktioniert nicht
+    // displayShowZiffer(i + 1);
+    displayShowZiffer(6);
     displaySetZifferAn(i, true);
     delay(500);
   }

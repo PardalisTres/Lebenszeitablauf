@@ -221,4 +221,14 @@ zu programmieren gehen.
 Aber mal schauen, ob meine Motivation mal so weit reichen wird,
 da weiter nachzuforschen, wenn der Rest erst einmal läuft.)
 
+### Verkabelungsprobleme?
+
+Da teilweise auf den beiden Blöcken unterschiedliche Bitmuster
+angezeigt werden, und nicht einmal die 8 vollständig angezeigt
+wird, vermute ich ein Problem bei der Verkabelung
+(oder bei der Nennung der Pins im Code).
+
+Eigentlich ein guter Anreiz, erst einmal zu den vorherigen,
+einfacheren Tests zurückzukehren.
+
 
