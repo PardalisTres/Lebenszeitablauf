@@ -153,6 +153,9 @@ Im ersten Versuch (beide Anzeigeblöcke zeigen gleichzeitig,
 ihre Stellen nach und nach durchlaufend,
 die Wertigkeit dieser Stelle (in beiden Blöcken gleich).
 
+![](Fotos/verkabelung_1.jpg)
+![](Fotos/verkabelung_2.jpg)
+
 Dabei treten drei Probleme auf:
 - Die Ziffern 4 und 5 werden nicht dargestellt.
 - Segment C wird beim zweiten Block nicht dargestellt.
