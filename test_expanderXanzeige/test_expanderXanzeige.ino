@@ -1,8 +1,8 @@
+// #include <Adafruit_PCF8574>  // https://github.com/adafruit/Adafruit_PCF8574
 #include <PCF8575.h>  // https://github.com/RobTillaart/PCF8575
-#include <Wire.h>
 #include <bitset>
 
-const uint8_t PinSda = 2;
+const uint8_t PinSda = 5;
 const uint8_t PinScl = 4;
 
 const uint8_t I2cPortExpander = 0x20;
@@ -79,7 +79,9 @@ void displayShowZiffer(const uint8_t ziffer) {
 
 
 void setup() {
-  expander.begin();
+  // Wire.setPins(PinSda, PinScl);
+  
+  expander.begin(0xFFFF);
 
   // zunächst alle Anzeigestellen ausschalten
   for (auto pin : PinForDigit) {
@@ -92,7 +94,7 @@ void loop() {
   // und geben jeweils die Stellennummer aus:
   /**/
   for (uint8_t i = 0; i < 5; ++i) {
-    displaySetZifferAn((i + 4) % 5, false); // i-1 funktioniert nicht
+    displaySetZifferAn((i + 4) % 5, false);  // i-1 funktioniert nicht
     displayShowZiffer(i + 1);
     displaySetZifferAn(i, true);
     delay(500);

@@ -187,5 +187,22 @@ da ihre Bibliothek dies faken kann.
 Somit ist mein nächster Ansatz klar:
 Ich versuche es mal mit der Adafruit-Bibliothek für den Expander.
 
+### Geistesblitz
+
+Beim Umschreiben auf den Adafruit-Expander fällt mir dabei auf,
+dass ich die I2C-Pins, die ich als Konstanten anlege,
+nirgends verwendet habe...
+Wie soll denn so auch die Kommunikation über diesen Bus funktionieren?!
+
+Pinzipiell sicherlich ein sehr guter Auffall - aber leider
+hier nicht zielführend:
+Nach dem Setzen der richtigen Pins an das Wire-Objekt
+bleiben alle Segmente dunkel.
+Dann doch lieber das falsche, aber sichtbare Durchlaufen
+der bepunkteten Achten...
+
+Und weiter geht es doch mit dem Versuch des Bibliothekentauschs.
+Das Setzen der I2C-Pins sollte ich aber für die vorherigen Tests
+noch einmal ausprobieren.
 
 
