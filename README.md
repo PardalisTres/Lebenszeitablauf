@@ -205,4 +205,20 @@ Und weiter geht es doch mit dem Versuch des Bibliothekentauschs.
 Das Setzen der I2C-Pins sollte ich aber für die vorherigen Tests
 noch einmal ausprobieren.
 
+### Großer Schritt vorwärts
+
+Mit der Adafruit-Bibliothek läuft es prinzipiell!
+
+Zwar werden noch falsche Bitmuster angezeigt, aber dies lässt sich
+sicherlich schnell herausfinden und korrigieren, in welcher
+Reihenfolge hier die Segmente angegeben werden sollen.
+
+Interessant wäre dann noch, einen gemischten Modus auszuprobieren,
+der von der Bibliothek auch unterstützt werden soll.
+(Und herauszufinden, wie das Ganze funktioniert - immerhin müsste
+es dann theoretisch auch mit der Bibliothek von Tillaart
+zu programmieren gehen.
+Aber mal schauen, ob meine Motivation mal so weit reichen wird,
+da weiter nachzuforschen, wenn der Rest erst einmal läuft.)
+
 

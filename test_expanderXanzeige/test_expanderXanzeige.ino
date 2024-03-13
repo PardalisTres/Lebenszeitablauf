@@ -1,5 +1,4 @@
-// #include <Adafruit_PCF8574>  // https://github.com/adafruit/Adafruit_PCF8574
-#include <PCF8575.h>  // https://github.com/RobTillaart/PCF8575
+#include <Adafruit_PCF8575.h>  // https://github.com/adafruit/Adafruit_PCF8574
 #include <bitset>
 
 const uint8_t PinSda = 5;
@@ -7,7 +6,7 @@ const uint8_t PinScl = 4;
 
 const uint8_t I2cPortExpander = 0x20;
 
-PCF8575 expander(I2cPortExpander);
+Adafruit_PCF8575 expander;
 
 // Pins am Expander für Pins der Display-Blöcke
 // (x = Ausfluss-Pin, - = nicht vorhanden)
@@ -71,21 +70,44 @@ void displaySetZifferAn(const uint8_t stelle, bool an = true) {
 void displayShowZiffer(const uint8_t ziffer) {
   const std::bitset<8>& muster = MusterZiffer[ziffer];
   for (uint8_t i = 0; i < 8; ++i) {
-    expander.write(EPinForSegmentOnBlock1[i], muster[i] ? HIGH : LOW);
-    expander.write(EPinForSegmentOnBlock2[i], muster[i] ? HIGH : LOW);
+    expander.digitalWrite(EPinForSegmentOnBlock1[i], muster[i] ? HIGH : LOW);
+    expander.digitalWrite(EPinForSegmentOnBlock2[i], muster[i] ? HIGH : LOW);
+  }
+}
+
+void fehlerblinken() {
+  while (1) {
+    digitalWrite(2, HIGH);
+    delay(200);
+    digitalWrite(2, LOW);
+    delay(200);
   }
 }
 
 
 
 void setup() {
-  // Wire.setPins(PinSda, PinScl);
-  
-  expander.begin(0xFFFF);
+  const bool pinsSet = Wire.setPins(PinSda, PinScl);
+  if (!pinsSet) {
+    fehlerblinken();
+  }
+
+  const bool expanderSet = expander.begin(I2cPortExpander);
+  if (!expanderSet) {
+    fehlerblinken();
+  }
 
   // zunächst alle Anzeigestellen ausschalten
   for (auto pin : PinForDigit) {
     pinMode(pin, INPUT);
+  }
+
+  // alles am Expander ist OUTPUT
+  for (auto pin: EPinForSegmentOnBlock1) {
+    expander.pinMode(pin, OUTPUT);
+  }
+  for (auto pin: EPinForSegmentOnBlock2) {
+    expander.pinMode(pin, OUTPUT);
   }
 }
 
