@@ -147,5 +147,31 @@ wenn dabei darauf geachtet wird, ihnen beiden im gleichen Moment
 die jeweiligen Eingabedaten für die darzustellende Ziffer mitzugeben.
 
 
+## Test 3: Expander und Display-Blöcke
+
+Im ersten Versuch (beide Anzeigeblöcke zeigen gleichzeitig,
+ihre Stellen nach und nach durchlaufend,
+die Wertigkeit dieser Stelle (in beiden Blöcken gleich).
+
+Dabei treten drei Probleme auf:
+- Die Ziffern 4 und 5 werden nicht dargestellt.
+- Segment C wird beim zweiten Block nicht dargestellt.
+- Ansonsten werden alle Segmente dargestellt, nicht nur ausgewählte.
+
+Das erste Problem kam mir vom anderen Test bekannt vor,
+und siehe da: ja, ich habe wieder einen Input-Only-GPIO-Pin
+des Controllers verkabelt, der das gewünschte nicht leisten kann;
+dies lässt sich also leicht beheben.
+
+Das zweite Problem lag ebenfalls an der Verkabelung,
+bzw. daran, dass der Expander nicht fest genug in seinem
+Klemmbrett steckte.
+
+Fehlt also nur noch die Antwort auf die Frage
+(die bereits den letzten Test zu keinem positiven Ergebnis führte),
+warum der Expander anscheinend alle Pins gleichzeitig
+mit Ausgabestrom beliefert.
+
+
 
 
