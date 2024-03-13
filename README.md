@@ -175,6 +175,17 @@ Fehlt also nur noch die Antwort auf die Frage
 warum der Expander anscheinend alle Pins gleichzeitig
 mit Ausgabestrom beliefert.
 
+### Bibliotheksersetzung
+
+Über ihre eigene Umsetzung des Expanders schreiben die Leute von Adafruit
+auf [dieser Seite](https://learn.adafruit.com/adafruit-pcf8575),
+dass eine LED nicht so einfach über den Expander zu beleuchten sei -
+also genau wie es auch bei mir nicht funktionieren will.
+
+Sie sagen dabei auch, dass man sich darüber keine Gedanken machen solle,
+da ihre Bibliothek dies faken kann.
+Somit ist mein nächster Ansatz klar:
+Ich versuche es mal mit der Adafruit-Bibliothek für den Expander.
 
 
 

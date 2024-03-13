@@ -79,7 +79,7 @@ void displayShowZiffer(const uint8_t ziffer) {
 
 
 void setup() {
-  expander.begin(PCF8575_INITIAL_VALUE);
+  expander.begin();
 
   // zunächst alle Anzeigestellen ausschalten
   for (auto pin : PinForDigit) {
