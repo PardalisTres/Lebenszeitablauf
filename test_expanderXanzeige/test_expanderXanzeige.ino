@@ -24,8 +24,8 @@ PCF8575 expander(I2cPortExpander);
 //     6   33
 //     8   25
 //    10   32
-//    11   35
-//    14   34
+//    11   22
+//    14   23
 
 // Pins am Expander für die Ansteuerung (Ausgabe) der acht Segmente an den beiden Blöcken
 // (0 = Segment A, ..., 8 = Punkt-Segment)
@@ -42,7 +42,7 @@ const uint8_t EPinForSegmentOnBlock2[] = {
 // (0 = hinterste Stelle pro Block)
 const uint8_t PinForDigit[] = {
   // 8, 6, 10, 11, 14 (am Block)
-  25, 33, 32, 35, 34
+  25, 33, 32, 22, 23
 };
 
 // Bit-Muster für Ziffern
@@ -90,10 +90,12 @@ void setup() {
 void loop() {
   // Für den Beginn lassen wir erst einmal die Stellen durchlaufen
   // und geben jeweils die Stellennummer aus:
-  for (int i = 0; i < 5; ++i) {
-    displaySetZifferAn((i - 1) % 5, false);
+  /**/
+  for (uint8_t i = 0; i < 5; ++i) {
+    displaySetZifferAn((i + 4) % 5, false); // i-1 funktioniert nicht
     displayShowZiffer(i + 1);
     displaySetZifferAn(i, true);
     delay(500);
   }
+  /**/
 }
