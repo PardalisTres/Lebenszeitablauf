@@ -1,27 +1,37 @@
-#include <PCF8575.h>  // https://github.com/RobTillaart/PCF8575
+#include <Adafruit_PCF8575.h>
 #include <Wire.h>
 
-const uint8_t PinSda = 2;
-const uint8_t PinScl = 4;
+const uint8_t PinSda = 4;
+const uint8_t PinScl = 5;
 
 // Pins am Expander
 // out = LED-Kathode
-const uint8_t EPinLed1out = 16;
-const uint8_t EPinLed2in = 14;
+const uint8_t EPinLed1out = 7;
+const uint8_t EPinLed2in = 6;
 const uint8_t EPinLed3in = 4;
 const uint8_t EPinLed3out = 5;
 
-const uint8_t I2cPortExpander = 0x20;
+const uint8_t I2cExpanderPort = 0x20;
 
-PCF8575 expander(I2cPortExpander);
+Adafruit_PCF8575 expander;
 
+
+void fehlerblinken() {
+  static const uint8_t OnBoardLed = 2;
+  pinMode(OnBoardLed, OUTPUT);
+  while (1) {
+    digitalWrite(OnBoardLed, HIGH);
+    delay(200);
+    digitalWrite(OnBoardLed, LOW);
+    delay(200);
+  }
+}
 
 void setup() {
-  expander.begin(PCF8575_INITIAL_VALUE);
-
-  // expander.setButtonMask(0xFFFF);
-  // expander.setButtonMask(0x0000);
-  // -> Ich kann keinen Unterschied im Verhalten beim Setzen dieser Maskierungen sehen.
+  if (!Wire.setPins(PinSda, PinScl))
+    fehlerblinken();
+  if (!expander.begin(I2cExpanderPort))
+    fehlerblinken();
 }
 
 void loop() {
@@ -32,38 +42,27 @@ void loop() {
   // 3 an Pin und Pin
 
   // Test 1: keine Anpassungen
-  // -> leuchtende LEDs: 0, 2
+  /**/
+  delay(200);
+  /**/
+  // -> leuchtende LEDs: 0, 2 (aber: je nach letztem Zustand)
 
   // Test 2: erleuchte LED 1
   /**/
-  // expander.write(EPinLed1out, LOW);
-  // expander.write(EPinLed1out, HIGH);
-  // expander.readButton(EPinLed1out);
+  expander.pinMode(EPinLed1out, OUTPUT);
+  expander.digitalWrite(EPinLed1out, LOW);
+  // -> Obacht: Ziehen auf LOW führt zum Leuchten!
   /**/
-  // -> kein positives Ergebnis mit allen Methoden
 
-  // Test 3: verdunkle LED 2
+  // Test 3: erhelle LED 2
   /**/
-  // expander.write(EPinLed2in, HIGH);
-  expander.write(EPinLed2in, LOW);
-  // expander.selectNone();
-  // expander.selectAll();
+  expander.pinMode(EPinLed2in, INPUT);
   /**/
-  // -> kein positives Ergebnis mit allen Methoden
 
   // Test 4: Erleuchte LED 3
   /**/
-  // expander.write(EPinLed3in, HIGH);
-  // expander.write(EPinLed3out, LOW);
-  //
-  // expander.write(EPinLed3in, LOW);
-  // expander.write(EPinLed3out, HIGH);
-  //
-  // expander.write(EPinLed3in, HIGH);
-  // expander.write(EPinLed3out, HIGH);
-  //
-  // expander.write(EPinLed3in, LOW);
-  // expander.write(EPinLed3out, LOW);
+  expander.pinMode(EPinLed3in, INPUT);
+  expander.pinMode(EPinLed3out, OUTPUT);
+  expander.digitalWrite(EPinLed3out, LOW);
   /**/
-  // -> kein positives Ergebnis mit allen Methoden
 }

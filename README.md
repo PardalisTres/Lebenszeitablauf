@@ -231,4 +231,9 @@ wird, vermute ich ein Problem bei der Verkabelung
 Eigentlich ein guter Anreiz, erst einmal zu den vorherigen,
 einfacheren Tests zurückzukehren.
 
+## Nachgeholter Testerfolg
+
+Et voilà: Der Test mit den LEDs hinter dem Expander funktioniert.
+
+
 

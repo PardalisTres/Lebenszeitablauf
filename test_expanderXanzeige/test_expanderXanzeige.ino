@@ -4,7 +4,7 @@
 const uint8_t PinSda = 5;
 const uint8_t PinScl = 4;
 
-const uint8_t I2cPortExpander = 0x20;
+const uint8_t I2cExpanderPort = 0x20;
 
 Adafruit_PCF8575 expander;
 
@@ -92,10 +92,12 @@ void displayShowZiffer(const uint8_t ziffer) {
 }
 
 void fehlerblinken() {
+  static const uint8_t OnBoardLed = 2;
+  pinMode(OnBoardLed, OUTPUT);
   while (1) {
-    digitalWrite(2, HIGH);
+    digitalWrite(OnBoardLed, HIGH);
     delay(200);
-    digitalWrite(2, LOW);
+    digitalWrite(OnBoardLed, LOW);
     delay(200);
   }
 }
@@ -108,7 +110,7 @@ void setup() {
     fehlerblinken();
   }
 
-  const bool expanderSet = expander.begin(I2cPortExpander);
+  const bool expanderSet = expander.begin(I2cExpanderPort);
   if (!expanderSet) {
     fehlerblinken();
   }
